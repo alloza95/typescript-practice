@@ -6,4 +6,11 @@ function printResult(num: number): void {
   console.log("Result: " + num);
 }
 
-printResult(add(1, 4))
+let combineValues: (a: number, b: number) => number;
+combineValues = add;
+// combineValues = printResult // Error type
+// combineValues = 5 // !! ERROR TYPE !!
+
+printResult(add(1, 4));
+
+console.log(combineValues(8, 8));
