@@ -9,3 +9,11 @@ userInput = "Arnau";
 if (typeof userInput === "string") {
   userName = userInput;
 }
+
+function generateError(message: string, code: number): never {
+  throw { message: code };
+}
+
+const result = generateError("An error has occurred!", 500);
+
+console.log(result);
