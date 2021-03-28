@@ -1,35 +1,18 @@
-// Tuple types doesn't exists in Javascript vanilla. Is a TypeScript type.
-// Tuple types allow you to express an array with a 
-// fixed number of elements whose types are known, 
-// but need not be the same. 
+function combine(input1: number | string, input2: number | string) {
+  let result;
 
-// const person: {
-//     name: string,
-//     age: number
-// }
+  if (typeof input1 === "number" && typeof input2 === "number") {
+    result = input1 + input2;
+  } else {
+    result = input1.toString() + input2.toString();
+  }
 
-const person: {
-  name: string;
-  age: number;
-  hobbies: string[];
-  role: [number, string];
-} = {
-  name: "Arnau",
-  age: 25,
-  hobbies: ["Sports", "Cooking"],
-  role: [2, "author"],
-};
-
-//  person.role = [1, 'admin', 'author'] // !! ERROR !! Has three elements when two are expected
-// person.role.push('admin') // CAUTION! You can push. TypeScript doesn't detect this.
-// person.role[1] = 10 // !! ERROR !! You can't assign a number to a string
-
-let favoriteActivities: string[];
-favoriteActivities = ["Sports"];
-
-console.log(person);
-
-for (const hobby of person.hobbies) {
-  console.log(hobby);
-  // console.log(hobby.map); // !! ERROR !!
+  return result;
 }
+
+const combinedAges = combine(26, 30);
+console.log(combinedAges);
+
+const combinedNames = combine("Arnau", "Clara");
+console.log(combinedNames);
+
